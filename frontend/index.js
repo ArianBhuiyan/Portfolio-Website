@@ -154,3 +154,17 @@ window.addEventListener('scroll', () => {
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+(function smoothNav(){
+  const links=document.querySelectorAll('.navbarText a[href^="#"], .logo a[data-target]');
+  links.forEach(link=>{
+    link.addEventListener('click', e=>{
+      e.preventDefault();
+      const targetId = link.getAttribute('data-target') || link.getAttribute('href').replace('#','');
+      const target = document.getElementById(targetId);
+      if(!target) return;
+      target.scrollIntoView({behavior: prefersReducedMotion ? 'auto':'smooth', block:'start'});
+      target.setAttribute('tabindex','-1');
+      target.focus({preventScroll:true});
+    });
+  });
+})();
