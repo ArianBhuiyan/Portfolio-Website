@@ -1,3 +1,4 @@
+// 2025 Arian Bhuiyan. All rights reserved. Do not copy or reuse.
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 (function navbarScroll(){
